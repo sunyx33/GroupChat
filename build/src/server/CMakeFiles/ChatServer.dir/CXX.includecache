@@ -21,17 +21,25 @@ muduo/net/TcpConnection.h
 -
 json.hpp
 -
-usermodel.hpp
-../include/server/usermodel.hpp
 mutex
 -
+usermodel.hpp
+../include/server/usermodel.hpp
 offlinemsgmodel.hpp
 ../include/server/offlinemsgmodel.hpp
+friendmodel.hpp
+../include/server/friendmodel.hpp
 
 ../include/server/db/db.hpp
 mysql/mysql.h
 -
 string
+-
+
+../include/server/friendmodel.hpp
+user.hpp
+../include/server/user.hpp
+vector
 -
 
 ../include/server/offlinemsgmodel.hpp
@@ -408,10 +416,20 @@ db.hpp
 muduo/base/Logging.h
 -
 
+/home/syx/GroupChat/src/server/friendmodel.cpp
+friendmodel.hpp
+/home/syx/GroupChat/src/server/friendmodel.hpp
+db.hpp
+/home/syx/GroupChat/src/server/db.hpp
+
 /home/syx/GroupChat/src/server/main.cpp
 chatserver.hpp
 /home/syx/GroupChat/src/server/chatserver.hpp
+chatservice.hpp
+/home/syx/GroupChat/src/server/chatservice.hpp
 iostream
+-
+signal.h
 -
 
 /home/syx/GroupChat/src/server/offlinemsgmodel.cpp
