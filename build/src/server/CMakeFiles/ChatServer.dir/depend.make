@@ -3,12 +3,14 @@
 
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../include/server/chatserver.hpp
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../include/server/chatservice.hpp
+src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../include/server/offlinemsgmodel.hpp
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../include/server/user.hpp
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../include/server/usermodel.hpp
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../thirdparty/json.hpp
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o: ../src/server/chatserver.cpp
 
 src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o: ../include/server/chatservice.hpp
+src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o: ../include/server/offlinemsgmodel.hpp
 src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o: ../include/server/public.hpp
 src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o: ../include/server/user.hpp
 src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o: ../include/server/usermodel.hpp
@@ -20,6 +22,10 @@ src/server/CMakeFiles/ChatServer.dir/db/db.cpp.o: ../src/server/db/db.cpp
 
 src/server/CMakeFiles/ChatServer.dir/main.cpp.o: ../include/server/chatserver.hpp
 src/server/CMakeFiles/ChatServer.dir/main.cpp.o: ../src/server/main.cpp
+
+src/server/CMakeFiles/ChatServer.dir/offlinemsgmodel.cpp.o: ../include/server/db/db.hpp
+src/server/CMakeFiles/ChatServer.dir/offlinemsgmodel.cpp.o: ../include/server/offlinemsgmodel.hpp
+src/server/CMakeFiles/ChatServer.dir/offlinemsgmodel.cpp.o: ../src/server/offlinemsgmodel.cpp
 
 src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.o: ../include/server/db/db.hpp
 src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.o: ../include/server/user.hpp

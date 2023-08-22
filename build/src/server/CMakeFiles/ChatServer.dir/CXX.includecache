@@ -25,11 +25,19 @@ usermodel.hpp
 ../include/server/usermodel.hpp
 mutex
 -
+offlinemsgmodel.hpp
+../include/server/offlinemsgmodel.hpp
 
 ../include/server/db/db.hpp
 mysql/mysql.h
 -
 string
+-
+
+../include/server/offlinemsgmodel.hpp
+string
+-
+vector
 -
 
 ../include/server/public.hpp
@@ -372,43 +380,51 @@ limits
 type_traits
 -
 
-/home/syx/chat/src/server/chatserver.cpp
+/home/syx/GroupChat/src/server/chatserver.cpp
 chatserver.hpp
-/home/syx/chat/src/server/chatserver.hpp
+/home/syx/GroupChat/src/server/chatserver.hpp
 json.hpp
-/home/syx/chat/src/server/json.hpp
+/home/syx/GroupChat/src/server/json.hpp
 functional
 -
 string
 -
 chatservice.hpp
-/home/syx/chat/src/server/chatservice.hpp
+/home/syx/GroupChat/src/server/chatservice.hpp
 
-/home/syx/chat/src/server/chatservice.cpp
+/home/syx/GroupChat/src/server/chatservice.cpp
 chatservice.hpp
-/home/syx/chat/src/server/chatservice.hpp
+/home/syx/GroupChat/src/server/chatservice.hpp
 public.hpp
-/home/syx/chat/src/server/public.hpp
+/home/syx/GroupChat/src/server/public.hpp
 muduo/base/Logging.h
 -
+vector
+-
 
-/home/syx/chat/src/server/db/db.cpp
+/home/syx/GroupChat/src/server/db/db.cpp
 db.hpp
-/home/syx/chat/src/server/db/db.hpp
+/home/syx/GroupChat/src/server/db/db.hpp
 muduo/base/Logging.h
 -
 
-/home/syx/chat/src/server/main.cpp
+/home/syx/GroupChat/src/server/main.cpp
 chatserver.hpp
-/home/syx/chat/src/server/chatserver.hpp
+/home/syx/GroupChat/src/server/chatserver.hpp
 iostream
 -
 
-/home/syx/chat/src/server/usermodel.cpp
-usermodel.hpp
-/home/syx/chat/src/server/usermodel.hpp
+/home/syx/GroupChat/src/server/offlinemsgmodel.cpp
+offlinemsgmodel.hpp
+/home/syx/GroupChat/src/server/offlinemsgmodel.hpp
 db.hpp
-/home/syx/chat/src/server/db.hpp
+/home/syx/GroupChat/src/server/db.hpp
+
+/home/syx/GroupChat/src/server/usermodel.cpp
+usermodel.hpp
+/home/syx/GroupChat/src/server/usermodel.hpp
+db.hpp
+/home/syx/GroupChat/src/server/db.hpp
 iostream
 -
 

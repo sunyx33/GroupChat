@@ -1,9 +1,10 @@
 #include "chatservice.hpp"
 #include "public.hpp"
 #include <muduo/base/Logging.h>
+#include <vector>
 
 using namespace muduo;
-
+using namespace std;
 
 // 获取单例对象的接口函数
 ChatService* ChatService::getInstance() {
@@ -49,7 +50,12 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time){
             response["id"] = user.getId();
             response["name"] = user.getName();
 
-            // 查询该用户是否有离线消息
+            // 处理离线消息
+            vector<string> vec = _offlineMsgModel.query(id);
+            if(!vec.empty()) {
+                response["offlinemsg"] = vec;
+                _offlineMsgModel.remove(id);
+            }
             
             conn->send(response.dump());
         }
@@ -137,4 +143,5 @@ void ChatService::oneChat(const TcpConnectionPtr &conn, json &js, Timestamp time
     }
 
     // toid不在线，存储离线消息
+    _offlineMsgModel.insert(toid, js.dump());
 }

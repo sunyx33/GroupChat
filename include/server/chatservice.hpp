@@ -7,6 +7,7 @@
 #include <json.hpp>
 #include "usermodel.hpp"
 #include <mutex>
+#include "offlinemsgmodel.hpp"
 
 using namespace std;
 using namespace muduo;
@@ -44,15 +45,18 @@ private:
     // 存储消息id（类型）及其对应的处理方法
     unordered_map<int, MsgHandler> _msgHandlerMap;
 
-    // 数据操作类对象
-    UserModel _userModel;
-
     // 需要把连接存下来，因为a->b，服务器不仅仅收a的消息，还要给b进行推送，所以要获得与b的连接以主动推送
     // 存储在线用户的通信连接
     unordered_map<int, TcpConnectionPtr> _userConnMap;
 
     // 定义互斥锁，保证_userConnMap线程安全
     mutex _connMapMutex;
+    
+    // 数据操作类对象
+    UserModel _userModel;
+
+    // 离线消息操作对象
+    OfflineMsgModel _offlineMsgModel;
 
 };
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/syx/chat
+# Install script for directory: /home/syx/GroupChat
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/syx/chat/build/src/cmake_install.cmake")
+  include("/home/syx/GroupChat/build/src/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/syx/chat/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/syx/GroupChat/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
