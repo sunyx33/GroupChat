@@ -1,7 +1,0 @@
-/home/syx/GroupChat/build/CMakeFiles/rebuild_cache.dir
-/home/syx/GroupChat/build/CMakeFiles/edit_cache.dir
-/home/syx/GroupChat/build/src/CMakeFiles/rebuild_cache.dir
-/home/syx/GroupChat/build/src/CMakeFiles/edit_cache.dir
-/home/syx/GroupChat/build/src/server/CMakeFiles/rebuild_cache.dir
-/home/syx/GroupChat/build/src/server/CMakeFiles/edit_cache.dir
-/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir
