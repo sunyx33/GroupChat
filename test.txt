@@ -4,3 +4,5 @@ li si 登录：    {"msgid":1,"id":15,"password":"666666"}
 zhang san 给 li si 说话 ：  {"msgid":5,"id":13,"from":"zhang san","to":15,"msg":"hello!"}
 
 zhang san 添加 li si:   {"msgid":6,"id":15,"friendid":16}
+
+123

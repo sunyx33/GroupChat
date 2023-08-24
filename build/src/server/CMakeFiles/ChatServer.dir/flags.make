@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/syx/GroupChat/include -I/home/syx/GroupChat/include/server -I/home/syx/GroupChat/include/server/db -I/home/syx/GroupChat/thirdparty 
+CXX_INCLUDES = -I/home/syx/GroupChat/include -I/home/syx/GroupChat/include/server -I/home/syx/GroupChat/include/server/db -I/home/syx/GroupChat/include/server/model -I/home/syx/GroupChat/thirdparty 
 

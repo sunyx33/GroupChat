@@ -29,6 +29,8 @@ offlinemsgmodel.hpp
 ../include/server/offlinemsgmodel.hpp
 friendmodel.hpp
 ../include/server/friendmodel.hpp
+groupmodel.hpp
+../include/server/groupmodel.hpp
 
 ../include/server/db/db.hpp
 mysql/mysql.h
@@ -36,27 +38,47 @@ mysql/mysql.h
 string
 -
 
-../include/server/friendmodel.hpp
+../include/server/model/friendmodel.hpp
 user.hpp
-../include/server/user.hpp
+../include/server/model/user.hpp
 vector
 -
 
-../include/server/offlinemsgmodel.hpp
+../include/server/model/group.hpp
 string
 -
 vector
 -
+grouupuser.hpp
+../include/server/model/grouupuser.hpp
+
+../include/server/model/groupmodel.hpp
+group.hpp
+../include/server/model/group.hpp
+string
+-
+vector
+-
+
+../include/server/model/grouupuser.hpp
+user.hpp
+../include/server/model/user.hpp
+
+../include/server/model/offlinemsgmodel.hpp
+string
+-
+vector
+-
+
+../include/server/model/user.hpp
+string
+-
+
+../include/server/model/usermodel.hpp
+user.hpp
+../include/server/model/user.hpp
 
 ../include/server/public.hpp
-
-../include/server/user.hpp
-string
--
-
-../include/server/usermodel.hpp
-user.hpp
-../include/server/user.hpp
 
 ../thirdparty/json.hpp
 algorithm
@@ -416,12 +438,6 @@ db.hpp
 muduo/base/Logging.h
 -
 
-/home/syx/GroupChat/src/server/friendmodel.cpp
-friendmodel.hpp
-/home/syx/GroupChat/src/server/friendmodel.hpp
-db.hpp
-/home/syx/GroupChat/src/server/db.hpp
-
 /home/syx/GroupChat/src/server/main.cpp
 chatserver.hpp
 /home/syx/GroupChat/src/server/chatserver.hpp
@@ -432,17 +448,29 @@ iostream
 signal.h
 -
 
-/home/syx/GroupChat/src/server/offlinemsgmodel.cpp
-offlinemsgmodel.hpp
-/home/syx/GroupChat/src/server/offlinemsgmodel.hpp
+/home/syx/GroupChat/src/server/model/friendmodel.cpp
+friendmodel.hpp
+/home/syx/GroupChat/src/server/model/friendmodel.hpp
 db.hpp
-/home/syx/GroupChat/src/server/db.hpp
+/home/syx/GroupChat/src/server/model/db.hpp
 
-/home/syx/GroupChat/src/server/usermodel.cpp
-usermodel.hpp
-/home/syx/GroupChat/src/server/usermodel.hpp
+/home/syx/GroupChat/src/server/model/groupmodel.cpp
+groupmodel.hpp
+/home/syx/GroupChat/src/server/model/groupmodel.hpp
 db.hpp
-/home/syx/GroupChat/src/server/db.hpp
+/home/syx/GroupChat/src/server/model/db.hpp
+
+/home/syx/GroupChat/src/server/model/offlinemsgmodel.cpp
+offlinemsgmodel.hpp
+/home/syx/GroupChat/src/server/model/offlinemsgmodel.hpp
+db.hpp
+/home/syx/GroupChat/src/server/model/db.hpp
+
+/home/syx/GroupChat/src/server/model/usermodel.cpp
+usermodel.hpp
+/home/syx/GroupChat/src/server/model/usermodel.hpp
+db.hpp
+/home/syx/GroupChat/src/server/model/db.hpp
 iostream
 -
 

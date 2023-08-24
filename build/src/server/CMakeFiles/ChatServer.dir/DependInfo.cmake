@@ -7,10 +7,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/syx/GroupChat/src/server/chatserver.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o"
   "/home/syx/GroupChat/src/server/chatservice.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o"
   "/home/syx/GroupChat/src/server/db/db.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/db/db.cpp.o"
-  "/home/syx/GroupChat/src/server/friendmodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/friendmodel.cpp.o"
   "/home/syx/GroupChat/src/server/main.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/main.cpp.o"
-  "/home/syx/GroupChat/src/server/offlinemsgmodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/offlinemsgmodel.cpp.o"
-  "/home/syx/GroupChat/src/server/usermodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.o"
+  "/home/syx/GroupChat/src/server/model/friendmodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/model/friendmodel.cpp.o"
+  "/home/syx/GroupChat/src/server/model/groupmodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/model/groupmodel.cpp.o"
+  "/home/syx/GroupChat/src/server/model/offlinemsgmodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/model/offlinemsgmodel.cpp.o"
+  "/home/syx/GroupChat/src/server/model/usermodel.cpp" "/home/syx/GroupChat/build/src/server/CMakeFiles/ChatServer.dir/model/usermodel.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,6 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../include/server"
   "../include/server/db"
+  "../include/server/model"
   "../thirdparty"
   )
 
