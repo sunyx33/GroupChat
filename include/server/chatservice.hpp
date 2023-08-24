@@ -46,6 +46,9 @@ public:
     // 群组聊天业务
     void groupChat(const TcpConnectionPtr &conn, json &js, Timestamp time);
 
+    // 处理登出业务
+    void logout(const TcpConnectionPtr &conn, json &js, Timestamp time);
+
     // 服务器异常，业务重置方法
     void reset();
 

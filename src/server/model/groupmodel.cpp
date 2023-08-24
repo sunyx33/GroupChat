@@ -19,7 +19,7 @@ bool GroupModel::createGroup(Group &group) {
 // 加入群组
 bool GroupModel::addGroup(int userid, int groupid, string role){
     char sql[1024] = {0};
-    sprintf(sql, "insert into groupuser values(%d, %d, %s)", groupid, userid, role.c_str());
+    sprintf(sql, "insert into groupuser values(%d, %d, '%s')", groupid, userid, role.c_str());
 
     MySQL mysql;
     if(mysql.connect()){

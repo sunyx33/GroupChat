@@ -2,6 +2,7 @@
 #include "public.hpp"
 #include <muduo/base/Logging.h>
 #include <vector>
+#include <iostream>
 
 using namespace muduo;
 using namespace std;
@@ -15,9 +16,14 @@ ChatService* ChatService::getInstance() {
 // 注册消息以及对应的回调函数
 ChatService::ChatService() {
     _msgHandlerMap.insert({LOGIN_MSG, std::bind(&ChatService::login, this, _1, _2, _3)});
+    _msgHandlerMap.insert({LOGINOUT_MSG, std::bind(&ChatService::logout, this, _1, _2, _3)});
     _msgHandlerMap.insert({REG_MSG, std::bind(&ChatService::reg, this, _1, _2, _3)});
     _msgHandlerMap.insert({ONE_CHAT_MSG, std::bind(&ChatService::oneChat, this, _1, _2, _3)});
     _msgHandlerMap.insert({ADD_FRIEND_MSG, std::bind(&ChatService::addFriend, this, _1, _2, _3)});
+    _msgHandlerMap.insert({CREATE_GROUP_MSG, std::bind(&ChatService::createGroup, this, _1, _2, _3)});
+    _msgHandlerMap.insert({ADD_GROUP_MSG, std::bind(&ChatService::addGroup, this, _1, _2, _3)});
+    _msgHandlerMap.insert({GROUP_CHAT_MSG, std::bind(&ChatService::groupChat, this, _1, _2, _3)});
+
 }
 
 // 处理登录业务  id  pwd
@@ -32,7 +38,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time){
             json response;
             response["msgid"] = LOGIN_MSG_ACK;
             response["errno"] = 2;
-            response["errmsg"] = "该账号已经在线，禁止重复登陆";
+            response["errmsg"] = "failed, this account is online!";
             conn->send(response.dump());
         } else {            
             // 登录成功，记录用户连接信息
@@ -72,6 +78,35 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time){
                 response["friends"] = vec2;
             }
 
+            // 查询用户的群组信息并返回
+            vector<Group> groupuserVec = _groupModel.queryGroups(id);
+            if (!groupuserVec.empty())
+            {
+                // group:[{groupid:[xxx, xxx, xxx, xxx]}]
+                vector<string> groupV;
+                for (Group &group : groupuserVec)
+                {
+                    json grpjson;
+                    grpjson["id"] = group.getId();
+                    grpjson["groupname"] = group.getName();
+                    grpjson["groupdesc"] = group.getDesc();
+                    vector<string> userV;
+                    for (GroupUser &user : group.getUsers())
+                    {
+                        json js;
+                        js["id"] = user.getId();
+                        js["name"] = user.getName();
+                        js["state"] = user.getState();
+                        js["role"] = user.getRole();
+                        userV.push_back(js.dump());
+                    }
+                    grpjson["users"] = userV;
+                    groupV.push_back(grpjson.dump());
+                }
+
+                response["groups"] = groupV;
+            }
+
             
             conn->send(response.dump());
         }
@@ -81,7 +116,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time){
         json response;
         response["msgid"] = LOGIN_MSG_ACK;
         response["errno"] = 1;
-        response["errmsg"] = "用户名或者密码错误";
+        response["errmsg"] = "failed, error id or pwd!";
         conn->send(response.dump());
     }
 }
@@ -125,7 +160,7 @@ MsgHandler ChatService::getHandler(int msgid) {
 
 // 一对一聊天业务
 void ChatService::oneChat(const TcpConnectionPtr &conn, json &js, Timestamp time) {
-    int toid = js["to"].get<int>();
+    int toid = js["toid"].get<int>();
 
     {
         lock_guard<mutex> lock(_connMapMutex);
@@ -183,6 +218,20 @@ void ChatService::groupChat(const TcpConnectionPtr &conn, json &js, Timestamp ti
             _offlineMsgModel.insert(id, js.dump());
         }
     }
+}
+
+// 处理登出业务
+void ChatService::logout(const TcpConnectionPtr &conn, json &js, Timestamp time) {
+    int userid = js["id"].get<int>();
+    {
+        lock_guard<mutex> lock(_connMapMutex);
+        auto it = _userConnMap.find(userid);
+        if(it != _userConnMap.end()) {
+            _userConnMap.erase(it);
+        }
+    }
+    User user(userid, "", "", "offline");
+    _userModel.updateState(user);
 }
 
 // 服务器异常，业务重置方法
